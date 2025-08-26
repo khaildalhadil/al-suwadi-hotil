@@ -7,7 +7,7 @@ import useCreateCabin from "./useCreateCabin";
 import useUpdateCabin from "./useUpdateCabin";
 
 
-export default function CabinForm({type, cabinToEdit = {}, setEdit, setisFormOpen}) {
+export default function CabinForm({type, cabinToEdit = {}, setEdit, setisFormOpen, handelCloseModal}) {
 
   const {id: editId, ...editalues} = cabinToEdit;
   const isEditSession = Boolean(editId);
@@ -28,6 +28,7 @@ export default function CabinForm({type, cabinToEdit = {}, setEdit, setisFormOpe
       setEdit(false);
     } else{
       createCabin({...data, image: data.image[0]});
+      handelCloseModal?.()
     }
   }
 
@@ -36,7 +37,7 @@ export default function CabinForm({type, cabinToEdit = {}, setEdit, setisFormOpe
   }
 
   return (
-    <form className="m-2" onSubmit={handleSubmit(onSubmit, onError)}>
+    <form className={`m-2 ${ type == "Edit" && 'border border-gray-300 p-3 rounded'}`} onSubmit={handleSubmit(onSubmit, onError)}>
       <FormRow label="Cabin name" error={errors?.name?.message} >
         <input type="text" id="name" name="name"
         {
@@ -108,9 +109,8 @@ export default function CabinForm({type, cabinToEdit = {}, setEdit, setisFormOpe
       </FormRow>
 
       <div className="flex gap-5">
-        <button disabled={isCreating} className={`bg-indigo-600 p-2 rounded text-gray-50 ${isCreating ? ' cursor-not-allowed': 'cursor-pointer' }`} type="submit">{type}</button>
-        {/* <button type="reset" className=" border border-gray-200 p-2 px-4 rounded cursor-pointer" onClick={() =>setisFormOpen(!false)} >Reset</button> */}
-        {/* <button type="button" className=" border border-gray-200 p-2 px-4 rounded cursor-pointer" onClick={() =>setisFormOpen(!false)} >Canel</button> */}
+        <button disabled={isCreating} className={`bg-indigo-600 p-2 rounded text-gray-50 ${isCreating ? ' cursor-not-allowed': 'cursor-pointer' }`} type="submit">Add</button>
+        <button onClick={() => handelCloseModal?.()} type="button" className=" border border-gray-200 p-2 px-4 rounded cursor-pointer">Canel</button>
       </div>
 
     </form>

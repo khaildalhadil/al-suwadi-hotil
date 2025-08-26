@@ -1,10 +1,9 @@
 import { useState } from "react";
-import CabinTable from "../components/cabin/CabinTable";
-import CabinForm from "../components/cabin/CabinForm";
+import CabinTable from "../features/cabins/CabinTable";
+
+import CreateCapin from "../features/cabins/CreateCapin";
 
 export default function Cabins() {
-
-  const [isFormOpen, setisFormOpen] = useState(false);
 
   return (
     <>
@@ -16,8 +15,9 @@ export default function Cabins() {
       <div >
         <CabinTable />
       </div>
-      <button onClick={() =>setisFormOpen(!isFormOpen)} className={`  bg-indigo-600  text-white p-2 rounded w-full cursor-pointer my-2 text-lg `}>{!isFormOpen ? 'Add new cabin': 'cancel Add new cabin' }</button>
-      {isFormOpen && <CabinForm setisFormOpen={setisFormOpen} type="save" />}
+
+      <CreateCapin />
+      
     </>
   )
 }

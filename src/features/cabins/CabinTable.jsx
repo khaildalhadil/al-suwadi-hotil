@@ -24,6 +24,7 @@ export default function CabinTable() {
       </div>
       <div>
         {cabins.map((cabin, i) => <SingleCapin cabin={cabin} key={i} />)}
+        
       </div>
     </>
   )

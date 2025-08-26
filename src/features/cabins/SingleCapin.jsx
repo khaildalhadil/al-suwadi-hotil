@@ -14,10 +14,11 @@ export default function SingleCapin({cabin}) {
     <>
       <div className='gridCabins border-b border-gray-200 pb-2 p-2 text-xl'>
         <img src={cabin.image} alt={cabin.name} className="rounded-sm "/>
-        <p className="justify-self-center" >{cabin.name}</p>
+        <p className="justify-self-center font-bold" >{cabin.name}</p>
         <p className="justify-self-center" >{cabin.maxCapacity}</p>
-        <p className="justify-self-center" >{cabin.regularPrice}</p>
-        <p className="justify-self-center" >{cabin.discount? cabin.discount: "--"}</p>
+        <p className="justify-self-center font-bold" >{cabin.regularPrice} Rial</p>
+        <p className={`justify-self-center ${cabin.discount? 'text-green-800 font-bold': 'text-white'}`} >{cabin.discount? cabin.discount: "--"}</p>
+        
         <div className="flex gap-2.5">
 
           <button 
@@ -32,6 +33,7 @@ export default function SingleCapin({cabin}) {
           </button>
 
         </div>
+
       </div>
       {edit && <CabinForm type="Edit" cabinToEdit={cabin} setEdit={setEdit} />}
     </>
