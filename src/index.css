@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-* {
-  /* color: #444; */
-}
-
 @theme {
   --font-logo: "Harmattan", sans-serif
 }

@@ -28,8 +28,8 @@ export default function CabinForm({type, cabinToEdit = {}, setEdit, setisFormOpe
       setEdit(false);
     } else{
       createCabin({...data, image: data.image[0]});
-      handelCloseModal?.()
     }
+    handelCloseModal?.()
   }
 
   function onError(errors) {

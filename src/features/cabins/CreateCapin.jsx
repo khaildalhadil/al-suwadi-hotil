@@ -8,20 +8,13 @@ export default function CreateCapin() {
 
       {/* button */}
       <Modal.Open opens="cabin-form">
-         <button className={`bg-indigo-600  text-white p-2 rounded w-full cursor-pointer my-2 text-lg `}>Add new cabin</button>
+        <button className={`bg-indigo-600  text-white p-2 rounded w-full cursor-pointer my-2 text-lg `}>Add new cabin</button>
       </Modal.Open>
 
       {/* form */}
       <Modal.Window name="cabin-form">
         <CabinForm />
       </Modal.Window>
-
-      {/* <Modal.Open opens="table">
-        <button className={`bg-indigo-600  text-white p-2 rounded w-full cursor-pointer my-2 text-lg `}>Add new cabin</button>
-      </Modal.Open>
-      <Modal.Window name="table">
-        <CabinForm />
-      </Modal.Window> */}
 
     </Modal> 
   );
